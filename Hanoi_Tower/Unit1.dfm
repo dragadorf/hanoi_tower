@@ -28,8 +28,6 @@ object Form1: TForm1
       item
         Width = 50
       end>
-    ExplicitTop = 307
-    ExplicitWidth = 304
   end
   object Panel1: TPanel
     Left = 0
@@ -38,7 +36,6 @@ object Form1: TForm1
     Height = 289
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 304
     object PaintBox1: TPaintBox
       Tag = 20
       Left = 1
@@ -57,8 +54,6 @@ object Form1: TForm1
     Height = 102
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 205
-    ExplicitWidth = 304
     object Label1: TLabel
       Left = 25
       Top = 14
@@ -146,8 +141,6 @@ object Form1: TForm1
     Height = 40
     Align = alClient
     TabOrder = 3
-    ExplicitWidth = 304
-    ExplicitHeight = 37
     object Button3: TButton
       Left = 65
       Top = 6

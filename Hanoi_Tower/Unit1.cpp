@@ -46,13 +46,9 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 void TForm1::draw_brick (double x, double y, double height, double width, int num)
 {
 
-	int Rc, Gc, Bc;
 	int pos=0;
 	int doc=1535*num/n;
-	//Rc=255*num/n;
-	//Gc=255*num/n;
-	//Bc=255*num/n;
-	int r, g, b;
+
 	R=255;
 	G=B=0;
 	bool set=false;
@@ -107,66 +103,12 @@ void TForm1::draw_brick (double x, double y, double height, double width, int nu
 		}
 	}
 
-	/*switch (num)
-	{
-	case 0:
-	R=255;
-	G=0;
-	B=0;
-	break;
-	case 1:
-	R=255;
-	G=128;
-	B=0;
-	break;
-	case 2:
-	R=255;
-	G=255;
-	B=0;
-	break;
-	case 3:
-	R=128;
-	G=255;
-	B=0;
-	break;
-	case 4:
-	R=0;
-	G=255;
-	B=0;
-	break;
-	case 5:
-	R=0;
-	G=255;
-	B=128;
-	break;
-	case 6:
-	R=0;
-	G=255;
-	B=255;
-	break;
-	case 7:
-	R=0;
-	G=128;
-	B=255;
-	break;
-	case 8:
-	R=0;
-	G=0;
-	B=255;
-	break;
-	case 9:
-	R=127;
-	G=0;
-	B=255;
-	break;
-	}
-	*/
-
 	PaintBox1->Canvas->Pen->Color = clBlack;
 	PaintBox1->Canvas->Brush->Color = (TColor) RGB(R,G,B);
-	//PaintBox1->Canvas->Brush->Color = color_test;
 	PaintBox1->Canvas->Rectangle(x-width/2,y-height/2,x+width/2,y+height/2);
-	//PaintBox1->Canvas->TextOut(x-2,y-7,num);
+	if (n<=10) {
+	  PaintBox1->Canvas->TextOut(x-2,y-7,num);
+	}
 }
 //---------------------------------------------------------------------------
 void TForm1::draw_line (double xp, double yp, double xk, double yk)

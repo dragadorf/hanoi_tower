@@ -62,6 +62,9 @@ public:		// User declarations
 	int a;
 	int b;
 	int count;
+	int R=0;
+	int G=0;
+	int B=0;
 	double max_height;
 	double brick_height;
 	double max_width;

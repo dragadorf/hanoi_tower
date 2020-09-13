@@ -45,10 +45,67 @@ void __fastcall TForm1::Button1Click(TObject *Sender)
 //---------------------------------------------------------------------------
 void TForm1::draw_brick (double x, double y, double height, double width, int num)
 {
-	int R, G, B;
-	R=255*num/n;
-	G=255*num/n;
-	B=255*num/n;
+
+	int Rc, Gc, Bc;
+	int pos=0;
+	int doc=1535*num/n;
+	//Rc=255*num/n;
+	//Gc=255*num/n;
+	//Bc=255*num/n;
+	int r, g, b;
+	R=255;
+	G=B=0;
+	bool set=false;
+
+	for (int i=0; i < 255; i++) {
+		pos++;
+		if (doc==pos) {
+		R=255;
+		G=i;
+		B=0;
+		}
+	}
+	for (int i=0; i < 255; i++) {
+		pos++;
+		if (doc==pos) {
+		R=255-i;
+		G=255;
+		B=0;
+		}
+	}
+	for (int i=0; i < 255; i++) {
+		pos++;
+		if (doc==pos) {
+		R=0;
+		G=255;
+		B=i;
+		}
+	}
+	for (int i=0; i < 255; i++) {
+		pos++;
+		if (doc==pos) {
+		R=0;
+		G=255-i;
+		B=255;
+		}
+	}
+	for (int i=0; i < 255; i++) {
+		pos++;
+		if (doc==pos) {
+		R=i;
+		G=0;
+		B=255;
+		}
+	}
+
+	for (int i=0; i < 255; i++) {
+		pos++;
+		if (doc==pos) {
+		R=255;
+		G=0;
+		B=255-i;
+		}
+	}
 
 	/*switch (num)
 	{
@@ -107,6 +164,7 @@ void TForm1::draw_brick (double x, double y, double height, double width, int nu
 
 	PaintBox1->Canvas->Pen->Color = clBlack;
 	PaintBox1->Canvas->Brush->Color = (TColor) RGB(R,G,B);
+	//PaintBox1->Canvas->Brush->Color = color_test;
 	PaintBox1->Canvas->Rectangle(x-width/2,y-height/2,x+width/2,y+height/2);
 	//PaintBox1->Canvas->TextOut(x-2,y-7,num);
 }
@@ -191,7 +249,7 @@ void __fastcall TForm1::Button6Click(TObject *Sender)
 	else
 	{
 	   Timer1->Enabled=True;
-       Button6->Caption="Stop";
+	   Button6->Caption="Stop";
 	}
 }
 //---------------------------------------------------------------------------
@@ -391,4 +449,8 @@ void TForm1::Check_win()
 
 }
 
+
+
+
+//---------------------------------------------------------------------------
 

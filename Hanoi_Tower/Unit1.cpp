@@ -35,6 +35,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 	min_width=20;
 
 	Initialize();
+	refresh_all();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button1Click(TObject *Sender)
@@ -163,26 +164,35 @@ void __fastcall TForm1::Button3Click(TObject *Sender)
 {
 	Algorithm(1,2);
 	AfterClick();
-	refresh_all();
+	Check_win();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button4Click(TObject *Sender)
 {
 	Algorithm(2,3);
 	AfterClick();
-	refresh_all();
+	Check_win();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button5Click(TObject *Sender)
 {
 	Algorithm(1,3);
 	AfterClick();
-	refresh_all();
+	Check_win();
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::Button6Click(TObject *Sender)
 {
-	Timer1->Enabled=True;
+	if (Timer1->Enabled==True)
+	{
+	Timer1->Enabled=False;
+	Button6->Caption="Start";
+	}
+	else
+	{
+	   Timer1->Enabled=True;
+       Button6->Caption="Stop";
+	}
 }
 //---------------------------------------------------------------------------
 void TForm1::Algorithm(int k, int l)
@@ -216,31 +226,36 @@ void TForm1::Algorithm(int k, int l)
 	{
 	   stack[l_index].column=k;
 	   stack[l_index].level=k_max+1;
+		count++;
 	}
 
 	else if (l_max==-1)
+
 	{
 	   stack[k_index].column=l;
 	   stack[k_index].level=l_max+1;
+		count++;
 	}
+
 	else if (stack[k_index].brick_width>stack[l_index].brick_width)
 	{
 		stack[l_index].column=k;
 		stack[l_index].level=k_max+1;
+		count++;
 	}
 	else if (stack[k_index].brick_width<stack[l_index].brick_width)
 	{
 		stack[k_index].column=l;
 		stack[k_index].level=l_max+1;
+		count++;
 	}
-
 
 }
 void __fastcall TForm1::Timer1Timer(TObject *Sender)
 {
 
 	Algorithm(a,b);
-	refresh_all();
+	AfterClick();
 
 	switch (is_even)
 	{
@@ -281,26 +296,15 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
 		break;
 	}
 
-
-
-	count++;
 	ProgressBar1->Position=count;
-	StatusBar1->Panels->Items[0]->Text="Liczba Ruchów: " + IntToStr(count);
-	if (count==pow(2,n)-1) {
-	Timer1->Enabled=False;
+	if (count==pow(2,n)-1)
+	{
+		Timer1->Enabled=false;
 	}
+	Check_win();
 
 }
 //---------------------------------------------------------------------------
-
-
-
-void __fastcall TForm1::Edit1Change(TObject *Sender)
-{
-	Timer1->Interval=StrToInt(Edit1->Text);
-}
-//---------------------------------------------------------------------------
-
 
 void __fastcall TForm1::PaintBox1MouseMove(TObject *Sender, TShiftState Shift, int X,
 		  int Y)
@@ -311,12 +315,14 @@ void __fastcall TForm1::PaintBox1MouseMove(TObject *Sender, TShiftState Shift, i
 
 void TForm1::AfterClick()
 {
-	count++;
-	StatusBar1->Panels->Items[0]->Text="Liczba Ruchów: " + IntToStr(count);
+	StatusBar1->Panels->Items[0]->Text="Liczba Ruchów: " + IntToStr(count) ;
+	refresh_all();
 }
 
 void TForm1::Initialize()
 {
+	Button6->Caption="Start";
+	Timer1->Enabled=False;
 	n=StrToInt(TrackBar1->Position);
 	if (n%2==0) {
 	   is_even=true;
@@ -354,4 +360,35 @@ void __fastcall TForm1::TrackBar1Change(TObject *Sender)
 	Initialize();
 }
 //---------------------------------------------------------------------------
+void __fastcall TForm1::TrackBar2Change(TObject *Sender)
+{
+	Timer1->Interval=TrackBar2->Position;
+	Label3->Caption="Interwa³:  "+IntToStr(TrackBar2->Position)+" ms";
+}
+
+void TForm1::Check_win()
+{
+	 bool win=true;
+
+	 for (int i=0; i < n; i++) {
+		 if (stack[i].column!=3) {
+			 win=false;
+		 }
+	 }
+
+	 if (win==true) {
+		if (count==pow(2,n)-1 && Timer1->Enabled==false)
+		{
+			ShowMessage("Koniec.\nMinimalna iloœæ ruchów.");
+		}
+		else
+		{
+			ShowMessage("Koniec.");
+		}
+		Initialize();
+
+	 }
+
+}
+
 

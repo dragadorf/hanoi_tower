@@ -23,22 +23,25 @@ __published:	// IDE-managed Components
 	TButton *Button5;
 	TButton *Button6;
 	TTimer *Timer1;
-	TEdit *Edit1;
 	TLabel *Label3;
 	TMainMenu *MainMenu1;
 	TStatusBar *StatusBar1;
 	TProgressBar *ProgressBar1;
 	TLabel *Label1;
 	TTrackBar *TrackBar1;
+	TPanel *Panel1;
+	TPanel *Panel2;
+	TPanel *Panel3;
+	TTrackBar *TrackBar2;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Button3Click(TObject *Sender);
 	void __fastcall Button4Click(TObject *Sender);
 	void __fastcall Button5Click(TObject *Sender);
 	void __fastcall Button6Click(TObject *Sender);
 	void __fastcall Timer1Timer(TObject *Sender);
-	void __fastcall Edit1Change(TObject *Sender);
 	void __fastcall PaintBox1MouseMove(TObject *Sender, TShiftState Shift, int X, int Y);
 	void __fastcall TrackBar1Change(TObject *Sender);
+	void __fastcall TrackBar2Change(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations
@@ -72,6 +75,7 @@ public:		// User declarations
 	void Algorithm(int i, int j);
 	void AfterClick();
 	void Initialize();
+	void Check_win();
 };
 //---------------------------------------------------------------------------
 extern PACKAGE TForm1 *Form1;

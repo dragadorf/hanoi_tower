@@ -1,7 +1,6 @@
 object Form1: TForm1
   Left = 0
   Top = 0
-  AutoSize = True
   Caption = 'Wie'#380'a Hanoi'
   ClientHeight = 450
   ClientWidth = 502
@@ -28,7 +27,7 @@ object Form1: TForm1
       item
         Width = 50
       end>
-    ExplicitTop = 307
+    ExplicitTop = 310
     ExplicitWidth = 304
   end
   object Panel1: TPanel
@@ -57,7 +56,7 @@ object Form1: TForm1
     Height = 102
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 205
+    ExplicitTop = 208
     ExplicitWidth = 304
     object Label1: TLabel
       Left = 25
@@ -147,7 +146,6 @@ object Form1: TForm1
     Align = alClient
     TabOrder = 3
     ExplicitWidth = 304
-    ExplicitHeight = 37
     object Button3: TButton
       Left = 65
       Top = 6

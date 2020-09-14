@@ -1,6 +1,7 @@
 object Form1: TForm1
   Left = 0
   Top = 0
+  BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Tower of Hanoi'
   ClientHeight = 460
@@ -60,14 +61,12 @@ object Form1: TForm1
     Height = 19
     Panels = <
       item
-        Text = 'Liczba ruch'#243'w:'
+        Text = 'Moves: 0'
         Width = 130
       end
       item
         Width = 50
       end>
-    ExplicitTop = 310
-    ExplicitWidth = 304
   end
   object Panel1: TPanel
     Left = 0
@@ -76,7 +75,6 @@ object Form1: TForm1
     Height = 289
     Align = alTop
     TabOrder = 1
-    ExplicitWidth = 304
     object PaintBox1: TPaintBox
       Tag = 20
       Left = 1
@@ -85,9 +83,8 @@ object Form1: TForm1
       Height = 287
       Align = alClient
       OnMouseMove = PaintBox1MouseMove
-      ExplicitLeft = 0
-      ExplicitTop = 2
-      ExplicitWidth = 500
+      ExplicitLeft = 129
+      ExplicitTop = 114
     end
   end
   object Panel2: TPanel
@@ -97,8 +94,6 @@ object Form1: TForm1
     Height = 102
     Align = alBottom
     TabOrder = 2
-    ExplicitTop = 208
-    ExplicitWidth = 304
     object Label1: TLabel
       Left = 25
       Top = 14
@@ -152,7 +147,7 @@ object Form1: TForm1
       Width = 143
       Height = 25
       Caption = 'Start'
-      TabOrder = 2
+      TabOrder = 4
       OnClick = Button6Click
     end
     object ProgressBar1: TProgressBar
@@ -161,11 +156,11 @@ object Form1: TForm1
       Width = 454
       Height = 20
       Max = 255
-      TabOrder = 3
+      TabOrder = 2
     end
     object TrackBar2: TTrackBar
       Left = 153
-      Top = 40
+      Top = 34
       Width = 132
       Height = 28
       DoubleBuffered = False
@@ -174,7 +169,7 @@ object Form1: TForm1
       ParentDoubleBuffered = False
       Frequency = 100
       Position = 1000
-      TabOrder = 4
+      TabOrder = 3
       TickStyle = tsNone
       OnChange = TrackBar2Change
     end
@@ -186,8 +181,6 @@ object Form1: TForm1
     Height = 50
     Align = alClient
     TabOrder = 3
-    ExplicitWidth = 304
-    ExplicitHeight = 40
     object Button3: TButton
       Left = 65
       Top = 6
@@ -225,6 +218,13 @@ object Form1: TForm1
   object MainMenu1: TMainMenu
     Left = 432
     Top = 64
+    object Options1: TMenuItem
+      Caption = 'Options'
+      object Shownumbers1: TMenuItem
+        Caption = 'Show numbers'
+        OnClick = Shownumbers1Click
+      end
+    end
   end
   object TrayIcon1: TTrayIcon
     Icon.Data = {
@@ -266,6 +266,6 @@ object Form1: TForm1
       000000000000000000000000000000000000000000000000000000000000}
     Visible = True
     Left = 432
-    Top = 112
+    Top = 120
   end
 end

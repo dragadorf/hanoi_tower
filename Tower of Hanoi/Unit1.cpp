@@ -104,7 +104,7 @@ void TForm1::draw_brick (double x, double y, double height, double width, int nu
 	PaintBox1->Canvas->Pen->Color = clBlack;
 	PaintBox1->Canvas->Brush->Color = (TColor) RGB(R,G,B);
 	PaintBox1->Canvas->Rectangle(x-width/2,y-height/2,x+width/2,y+height/2);
-	if (n<=10) {
+	if (n<10 && Shownumbers1->Checked==true) {
 	  PaintBox1->Canvas->TextOut(x-2,y-7,num);
 	}
 }
@@ -388,5 +388,19 @@ void TForm1::Check_win()
 
 }
 
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::Shownumbers1Click(TObject *Sender)
+{
+	if (Shownumbers1->Checked==true)
+	{
+		Shownumbers1->Checked=false;
+	}
+	else
+	{
+		Shownumbers1->Checked=true;
+	}
+	refresh_all();
+}
 //---------------------------------------------------------------------------
 

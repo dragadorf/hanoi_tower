@@ -34,6 +34,8 @@ __published:	// IDE-managed Components
 	TPanel *Panel3;
 	TTrackBar *TrackBar2;
 	TTrayIcon *TrayIcon1;
+	TMenuItem *Options1;
+	TMenuItem *Shownumbers1;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Button3Click(TObject *Sender);
 	void __fastcall Button4Click(TObject *Sender);
@@ -43,6 +45,7 @@ __published:	// IDE-managed Components
 	void __fastcall PaintBox1MouseMove(TObject *Sender, TShiftState Shift, int X, int Y);
 	void __fastcall TrackBar1Change(TObject *Sender);
 	void __fastcall TrackBar2Change(TObject *Sender);
+	void __fastcall Shownumbers1Click(TObject *Sender);
 
 private:	// User declarations
 public:		// User declarations

@@ -1,5 +1,4 @@
 //---------------------------------------------------------------------------
-
 #include <vcl.h>
 #include <math.h>
 #pragma hdrstop
@@ -29,8 +28,7 @@ __fastcall TForm1::TForm1(TComponent* Owner)
 
 	count=0;
 	brick stack[n];
-	//if...
-	max_height=160;
+	max_height=180;
 	max_width=140;
 	min_width=20;
 
@@ -258,8 +256,7 @@ void __fastcall TForm1::Timer1Timer(TObject *Sender)
 	AfterClick();
 
 	switch (is_even)
-	{
-		case true:
+	{		case true:
 			if (a==2 && b==3)
 			{
 			a=1;
@@ -315,7 +312,7 @@ void __fastcall TForm1::PaintBox1MouseMove(TObject *Sender, TShiftState Shift, i
 
 void TForm1::AfterClick()
 {
-	StatusBar1->Panels->Items[0]->Text="Liczba Ruchów: " + IntToStr(count) ;
+	StatusBar1->Panels->Items[0]->Text="Moves: " + IntToStr(count) ;
 	refresh_all();
 }
 
@@ -336,11 +333,11 @@ void TForm1::Initialize()
         b=3;
     }
 	brick_height=max_height/n;
-	Label1->Caption="Elementy: "+IntToStr(TrackBar1->Position);
+	Label1->Caption="Elements: "+IntToStr(TrackBar1->Position);
 	count=0;
 	ProgressBar1->Max=pow(2,n)-1;
 	ProgressBar1->Position=count;
-	StatusBar1->Panels->Items[0]->Text="Liczba Ruchów: " + IntToStr(count);
+	StatusBar1->Panels->Items[0]->Text="Moves: " + IntToStr(count);
 
 	for (int i=0; i<n; i++)
 	{
@@ -363,7 +360,7 @@ void __fastcall TForm1::TrackBar1Change(TObject *Sender)
 void __fastcall TForm1::TrackBar2Change(TObject *Sender)
 {
 	Timer1->Interval=TrackBar2->Position;
-	Label3->Caption="Interwa³:  "+IntToStr(TrackBar2->Position)+" ms";
+	Label3->Caption="Interval:  "+IntToStr(TrackBar2->Position)+" ms";
 }
 
 void TForm1::Check_win()
@@ -379,20 +376,17 @@ void TForm1::Check_win()
 	 if (win==true) {
 		if (count==pow(2,n)-1 && Timer1->Enabled==false)
 		{
-			ShowMessage("Koniec.\nMinimalna iloœæ ruchów.");
+			ShowMessage("The End.\nMinimum number of moves.");
 		}
 		else
 		{
-			ShowMessage("Koniec.");
+			ShowMessage("The End.");
 		}
 		Initialize();
 
 	 }
 
 }
-
-
-
 
 //---------------------------------------------------------------------------
 

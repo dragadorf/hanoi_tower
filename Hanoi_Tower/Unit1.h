@@ -33,6 +33,7 @@ __published:	// IDE-managed Components
 	TPanel *Panel2;
 	TPanel *Panel3;
 	TTrackBar *TrackBar2;
+	TTrayIcon *TrayIcon1;
 	void __fastcall Button1Click(TObject *Sender);
 	void __fastcall Button3Click(TObject *Sender);
 	void __fastcall Button4Click(TObject *Sender);

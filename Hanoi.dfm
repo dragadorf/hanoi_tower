@@ -4,7 +4,7 @@ object Form1: TForm1
   BorderIcons = [biSystemMenu, biMinimize]
   BorderStyle = bsSingle
   Caption = 'Tower of Hanoi'
-  ClientHeight = 460
+  ClientHeight = 448
   ClientWidth = 512
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -56,7 +56,7 @@ object Form1: TForm1
   TextHeight = 13
   object StatusBar1: TStatusBar
     Left = 0
-    Top = 441
+    Top = 429
     Width = 512
     Height = 19
     Panels = <
@@ -67,6 +67,7 @@ object Form1: TForm1
       item
         Width = 50
       end>
+    ExplicitTop = 441
   end
   object Panel1: TPanel
     Left = 0
@@ -89,11 +90,12 @@ object Form1: TForm1
   end
   object Panel2: TPanel
     Left = 0
-    Top = 339
+    Top = 327
     Width = 512
     Height = 102
     Align = alBottom
     TabOrder = 2
+    ExplicitTop = 339
     object Label1: TLabel
       Left = 25
       Top = 14
@@ -178,9 +180,10 @@ object Form1: TForm1
     Left = 0
     Top = 289
     Width = 512
-    Height = 50
+    Height = 38
     Align = alClient
     TabOrder = 3
+    ExplicitHeight = 50
     object Button3: TButton
       Left = 65
       Top = 6

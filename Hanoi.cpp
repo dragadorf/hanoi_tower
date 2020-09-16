@@ -3,7 +3,7 @@
 #include <math.h>
 #pragma hdrstop
 
-#include "Unit1.h"
+#include "Hanoi.h"
 //---------------------------------------------------------------------------
 #pragma package(smart_init)
 #pragma resource "*.dfm"
